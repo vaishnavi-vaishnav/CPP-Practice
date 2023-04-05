@@ -15,6 +15,11 @@ int binarySearch(vector<int> arr, int target) {
             while (mid > 0 && arr[mid - 1] == target) {
                 mid--;
             }
+            
+            // target found, check if it is the last occurrence
+            // while (mid > 0 && arr[mid + 1] == target) {
+            //     mid++;
+            // }
             return mid;
         }
         else if (arr[mid] < target) {
