@@ -13,7 +13,7 @@
             return left;
         }
         
-        int mid = ( left + right ) / 2;
+        int mid =  left + (right - left) / 2;
         int next = mid + 1;
         int prev = mid - 1;
         
