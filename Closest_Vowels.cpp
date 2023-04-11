@@ -28,6 +28,24 @@
 // Output Format:
 // For each test case, output the total number of distinct beautiful strings T that can be obtained by performing the given operations on the string S, modulo 10^9+7.
 
+// Input:
+// 4
+// 5
+// aeiou
+// 5
+// abcde
+// 8
+// starters
+// 8
+// codechef
+
+// Output:
+// 1
+// 2
+// 4
+// 4
+
+
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int

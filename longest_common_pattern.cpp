@@ -22,6 +22,23 @@
 // For each test case, output a single line containing a single 
 // integer, the longest common pattern length between A and B.
 
+// Input::
+// 4
+// abcd
+// xyz
+// abcd
+// bcda
+// aabc
+// acaa
+// Codechef
+// elfedcc
+
+// Output:
+// 0
+// 4
+// 3
+// 5
+
 
 #include <iostream>
 using namespace std;
