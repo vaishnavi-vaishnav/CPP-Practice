@@ -23,3 +23,33 @@
 // integer, the longest common pattern length between A and B.
 
 
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+    cin >> t;
+    while (t--) {
+        string a, b;
+        cin >> a >> b;
+        
+        int freq[256] = {0}; 
+        // initializing an array to store frequency of each character
+        
+        int common = 0;
+        
+        for (int i = 0; i < a.length(); i++) {
+            freq[a[i]]++; 
+            // increasing frequency of character in string a
+        }
+        for (int i = 0; i < b.length(); i++) {
+            if (freq[b[i]] > 0) 
+            { // if character in string b is present in string a
+                common++; // incrementing common count
+                freq[b[i]]--; // decrementing frequency of character in string a
+            }
+        }
+        cout << common << endl; // outputting the common count for current test case
+    }
+    return 0;
+}
