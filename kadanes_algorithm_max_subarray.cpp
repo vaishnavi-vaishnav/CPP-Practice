@@ -37,6 +37,7 @@ int kadanesAlgo(int arr[], int n){
             start = s;
             end = i;
         }
+        // max_sum = max(max_sum, current_sum);
         if(curr < 0){
             curr = 0;
             s = i + 1;
