@@ -35,57 +35,46 @@ class Solution{
     // Function to find majority element in the array
     // a: input array
     // size: size of input array
-    int dominantElement(int arr[], int size)
+    int dominantElement(int nums[])
     {
         
-         int count = 0;
-    int candidate = -1;
-    for (int i = 0; i < size; i++) {
-        if (count == 0) {
-            candidate = arr[i];
+         int low = nums[0];
+        int high = nums[0];
+        do {
+            low = nums[low];
+            high = nums[nums[high]];
+        } while (low != high);
+        
+        int ptr1 = nums[0];
+        int ptr2 = low;
+        while (ptr1 != ptr2) {
+            ptr1 = nums[ptr1];
+            ptr2 = nums[ptr2];
         }
-        if (arr[i] == candidate) {
-            count++;
-        } else {
-            count--;
-        }
-    }
-    count = 0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] == candidate) {
-            count++;
-        }
-    }
-    if (count > size/2) {
-        return candidate;
-    } else {
-        return -1;
-    }
+        cout << ptr1;
+
+        return 0 ;
         
     }
 };
 
 int main()
 {
-    int t;
-    cin >> t;
-
-    while(t--){
-
+    
         int n;
         cin >> n;
 
-        int arr[n];
+        int nums[n];
 
         for(int i = 0; i < n; i++){
-            cin >> arr[i];
+            cin >> nums[i];
 
         }
 
         Solution obj;
-        cout << obj.dominantElement(arr, n) << endl;
+        cout << obj.dominantElement(nums) << endl;
 
-    }
+    
 
     return 0;
 
