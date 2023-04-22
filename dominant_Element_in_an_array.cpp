@@ -38,7 +38,7 @@ class Solution{
     int dominantElement(int nums[])
     {
         
-         int low = nums[0];
+        int low = nums[0];
         int high = nums[0];
         do {
             low = nums[low];
