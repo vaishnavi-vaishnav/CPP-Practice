@@ -4,6 +4,7 @@ using namespace std;
 void IterativeMethod(int arr[], int start, int end){
 
     while(start < end){
+        // swap(arr[start], arr[end]);
         int temp = arr[start];
         arr[start] = arr[end];
         arr[end] = temp;
@@ -16,6 +17,7 @@ void IterativeMethod(int arr[], int start, int end){
 void RecursiveMethod(int arr[], int start, int end){
     if(start >= end)
         return;
+    // swap(arr[start], arr[end]);    
     int temp = arr[start];
     arr[start] = arr[end];
     arr[end] = temp;
