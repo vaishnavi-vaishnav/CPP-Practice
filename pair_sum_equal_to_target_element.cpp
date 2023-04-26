@@ -4,9 +4,7 @@ using namespace std;
 vector<vector<int>> PairSum(vector<int> &nums, int n, int target){
 
         vector<vector<int>> ans;
-
         sort(nums.begin(), nums.end());
-        
         for(int i = 0; i < n ; i++){
             for(int j = i + 1; j < n; j++){
                 if(nums[i] + nums[j] == target){
@@ -15,6 +13,21 @@ vector<vector<int>> PairSum(vector<int> &nums, int n, int target){
             }
         }
         return ans;
+
+    //  vector<vector<int>> ans;
+
+    // for(int i = 0; i < n; i++){
+    //     for(int j = i + 1; j < n; j++){
+    //         if(arr[i] + arr[j] == target){
+    //             vector<int> temp;
+    //             temp.push_back(min(arr[i], arr[j]));
+    //             temp.push_back(max(arr[i], arr[j]));
+    //             ans.push_back(temp);
+    //         }
+    //     }
+    // }
+    // sort(ans.begin(), ans.end());
+    // return ans;
 }
 
 int main(){
