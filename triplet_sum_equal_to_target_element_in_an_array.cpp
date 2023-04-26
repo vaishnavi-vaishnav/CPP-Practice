@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> PairSum(vector<int> &nums, int target){
+vector<vector<int>> tripletSum(vector<int> &nums, int target){
 
     vector<vector<int>> ans;
 
@@ -37,7 +37,7 @@ int main(){
     cout << "Enter target element: ";
     cin >> target;
 
-    vector<vector<int>> answer = PairSum(arr, target);
+    vector<vector<int>> answer = tripletSum(arr, target);
 
     for(int i = 0; i < answer.size(); i++){
         for(int j = 0; j < answer[i].size(); j++){
