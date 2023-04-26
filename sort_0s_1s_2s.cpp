@@ -3,7 +3,10 @@ using namespace std;
   
   void sortZeroOneTwo(vector<int>& nums, int n) {
 
-// Method - 1 Brute Force approach
+// Method - 1 Sorting function  
+        // sort(nums.begin(), nums.end());
+
+// Method - 2 Brute Force approach
 
         // int count0 = 0, count1 = 0, count2 = 0;
         // for(int i = 0 ;i < n; i++)
@@ -26,7 +29,7 @@ using namespace std;
         //         nums[i] = 2;
         // }
 
-// Method - 2 using pointers  
+// Method - 3 using pointers  
         int left = 0, mid = 0, right = n - 1;
         while(mid <= right) {
             if(nums[mid] == 0) {
