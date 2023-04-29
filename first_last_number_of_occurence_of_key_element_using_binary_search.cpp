@@ -26,79 +26,86 @@ using namespace std;
 // }
 
 
-int countOccurrences(int arr[], int n, int key) {
-    
-    int left = 0, right = n-1;
-    int first, last;
+//  METHOD - 2 (Binary search)
 
-    // Find first occurrence of key
-    while(left <= right) {
-        
-        int mid = (left + right)/2;
-        
-        if(arr[mid] == key) 
-        {
-            if(mid == 0 || arr[mid-1] != key) {
-                first = mid;
-                break;
-            }
-            else {
-                right = mid-1;
-            }
-        }
-        else if(arr[mid] > key) {
-            right = mid-1;
-        }
-        else {
-            left = mid+1;
+
+vector<int> countOccurrences(const vector<int>& arr, int n,  int target) {
+    // sort(arr.begin(), arr.end());
+    // int n = arr.size();
+
+    if (n == 0 || target < arr[0] || target > arr[n-1]) {
+        return vector<int>{-1, -1};
+    }
+
+    int left = 0, right = n - 1;
+    vector<int> result(2, -1);
+
+    // Find the first occurrence of target
+    while (left <= right) {
+
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] < target) {
+            left = mid + 1;
+
+        } else if (arr[mid] > target) {
+            right = mid - 1;
+
+        } else {
+            result[0] = mid;
+            right = mid - 1;
         }
     }
 
-    // Key not found
-    if(left > right) {
-        return 0;
-    }
+    // Find the last occurrence of target
+    left = 0;
+    right = n - 1;
 
-    // Find last occurrence of key
-    left = first, right = n-1;
-    
-    while(left <= right) 
-    {
-        int mid = (left + right)/2;
-        
-        if(arr[mid] == key) 
-        {
-            if(mid == n-1 || arr[mid+1] != key) {
-                last = mid;
-                break;
-            }
-            else {
-                left = mid+1;
-            }
-        }
-        else if(arr[mid] > key) {
-            right = mid-1;
-        }
-        else {
-            left = mid+1;
+    while (left <= right) {
+
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] < target) {
+            left = mid + 1;
+
+        } else if (arr[mid] > target) {
+            right = mid - 1;
+            
+        } else {
+            result[1] = mid;
+            left = mid + 1;
         }
     }
 
-    // Return number of occurrences
-    return last - first + 1;
+    return result;
 }
-
+   
 int main() {
+    int n;
+    cout << "enter the size of array: ";
+    cin >> n;
     
-    int arr[] = {2, 8, 8, 8, 8, 10, 12, 15};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    vector <int> arr;
+    for(int i = 0; i < n; i++){
+        int x;
+        cout << "enter " << i + 1 << " element: ";
+        cin >> x;
+        arr.push_back(x);
+    }
     
-    int key = 8;
+    int key_value;
+    cout << "Enter the target element: ";
+    cin >> key_value;
     
-    int count = countOccurrences(arr, n, key);
+    vector<int> occurrences = countOccurrences(arr, n, key_value);
     
-    cout << "Number of occurrences of " << key << " in the array: " << count << endl;
+    if (occurrences[0] == -1) {
+        cout << "Key value not found in array\n";
+    } else {
+        cout << "First occurrence of key value: " << occurrences[0] << endl;
+        cout << "Last occurrence of key value: " << occurrences[1] << endl;
+        cout << "Number of occurrences of key value: " << (occurrences[1] - occurrences[0] + 1) << endl;
+    }
     
     return 0;
 }
-
