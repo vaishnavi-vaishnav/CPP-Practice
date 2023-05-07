@@ -4,15 +4,17 @@ using namespace std;
 vector<int> rotateLeft(int d, vector<int> arr) {
     int n = arr.size();
     vector<int> ans(n);
+
+    // Method - 1 (Optimized solution)
     
+    
+    // Method - 2 (Optimized solution)
     // Copy the rotated elements to the new array
     for (int i = 0; i < n; i++) {
         ans[i] = arr[(d + i) % n];
     }
-    
     return ans;
 }
-
 
 int main() {
     int n, d;
